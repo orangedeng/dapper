@@ -184,6 +184,7 @@ func (d *Dapperfile) runArgs(tag, shell string, commandArgs []string) (string, [
 
 	args = append(args, "-e", fmt.Sprintf("DAPPER_UID=%d", os.Getuid()))
 	args = append(args, "-e", fmt.Sprintf("DAPPER_GID=%d", os.Getgid()))
+	args = append(args, "--net", "host")
 
 	for _, env := range d.env.Env() {
 		args = append(args, "-e", env)
